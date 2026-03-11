@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import { useKV } from "@github/spark/hooks"
+import { useLocalStorage } from "@/hooks/useLocalStorage"
 import { INITIAL_RESOURCES } from "@/lib/initial-resources"
 import type { Resource } from "@/lib/types"
 
 export function DataInitializer() {
-  const [resources, setResources] = useKV<Resource[]>("resources", [])
+  const [resources, setResources] = useLocalStorage<Resource[]>("resources", [])
   const [initialized, setInitialized] = useState(false)
 
   useEffect(() => {
