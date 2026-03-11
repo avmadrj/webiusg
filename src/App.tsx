@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react"
-import { useKV } from "@github/spark/hooks"
+import { useLocalStorage } from "@/hooks/useLocalStorage"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Separator } from "@/components/ui/separator"
@@ -13,7 +13,7 @@ import { List } from "@phosphor-icons/react"
 import type { Resource } from "@/lib/types"
 
 function App() {
-  const [resources] = useKV<Resource[]>("resources", [])
+  const [resources] = useLocalStorage<Resource[]>("resources", [])
   const [currentView, setCurrentView] = useState("home")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   
